@@ -16,16 +16,16 @@ This project is for educational porpuses only. Pull request are welcome, but pri
 
 ## 🎯 Project features/goals
 
--   Node.js server
--   responsive design
--   multi page (routing, design templates)
--   form (register, login)
--   file system (some data storage, static files: js, css, images, fonts)
--   API
--   database (MySQL)
--   request (fetch, ajax)
--   authentication (cookies)
--   Jest tests
+-   [x] Node.js server
+-   [ ] responsive design
+-   [x] multi page (routing, design templates)
+-   [ ] form (register, login)
+-   [x] file system (some data storage, static files: js, css, images, fonts)
+-   [ ] API
+-   [ ] database (MySQL)
+-   [ ] request (fetch, ajax)
+-   [ ] authentication (cookies)
+-   [ ] Jest tests
 
 ## 🧰 Getting Started
 
