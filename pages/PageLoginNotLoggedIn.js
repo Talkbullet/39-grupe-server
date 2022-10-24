@@ -11,9 +11,9 @@ class PageLoginNotLoggedIn extends PageTemplate {
                     <h2>Login</h2>
                     <form action="/api/user-login" method="POST">
                         <label>Email</label>
-                        <input type="email">
+                        <input name="email" type="email">
                         <label>Password</label>
-                        <input type="password">
+                        <input name="password" type="password">
                         <button type="submit">Login</button>
                     </form>
                 </main>`;
