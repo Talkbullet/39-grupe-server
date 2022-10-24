@@ -1,3 +1,5 @@
+import { IsValid } from "./isValid.js";
+
 const formDOM = document.querySelector('form');
 const inputsDOM = formDOM.querySelectorAll('input');
 const buttonDOM = formDOM.querySelector('button');
@@ -14,9 +16,11 @@ buttonDOM.addEventListener('click', (event) => {
         formData[key] = value;
     }
 
-    console.log(formData);
-
     // 2) duomenu validacija
+    const dataKeys = Object.keys(formData);
+    for (const key of dataKeys) {
+        const [isErr, msg] = IsValid.username();
+    }
 
     // 3) duomenu issiuntimas
     // 3a) success -> rodom
