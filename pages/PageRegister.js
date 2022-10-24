@@ -1,6 +1,11 @@
 import { PageTemplate } from "../lib/PageTemplate.js";
 
 class PageRegister extends PageTemplate {
+    constructor() {
+        super();
+        this.scripts = ['auth'];
+    }
+
     mainHTML() {
         return `<main>
                     <h2>Register</h2>

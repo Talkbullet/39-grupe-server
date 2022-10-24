@@ -1,10 +1,15 @@
 import { PageTemplate } from "../lib/PageTemplate.js";
 
 class PageLoginNotLoggedIn extends PageTemplate {
+    constructor() {
+        super();
+        this.scripts = ['auth'];
+    }
+
     mainHTML() {
         return `<main>
                     <h2>Login</h2>
-                    <form>
+                    <form action="/api/user-login" method="POST">
                         <label>Email</label>
                         <input type="email">
                         <label>Password</label>
