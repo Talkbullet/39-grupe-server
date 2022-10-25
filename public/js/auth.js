@@ -9,18 +9,28 @@ buttonDOM.addEventListener('click', (event) => {
 
     // 1) duomenu surinkimas
     const formData = {};
+    const errorsList = [];
 
     for (const inputDOM of inputsDOM) {
         const key = inputDOM.name;
         const value = inputDOM.value;
+        const validationMethod = inputDOM.dataset.validation;
         formData[key] = value;
+
+        const [err, msg] = IsValid[validationMethod](value);
+        if (err) {
+            errorsList.push(msg);
+        }
     }
 
-    // 2) duomenu validacija
-    const dataKeys = Object.keys(formData);
-    for (const key of dataKeys) {
-        console.log(key);
-        const [isErr, msg] = IsValid.username();
+    if (errorsList.length) {
+        console.log(errorsList);
+    } else {
+        console.log('Viskas OK - siunciam duomenis i serveri...');
+        fetch(formDOM.action, {
+            method: 'POST',
+            body: JSON.stringify(formData),
+        });
     }
 
     // 3) duomenu issiuntimas

@@ -9,15 +9,15 @@ class PageRegister extends PageTemplate {
     mainHTML() {
         return `<main>
                     <h2>Register</h2>
-                    <form>
+                    <form action="/api/register">
                         <label>Username</label>
-                        <input name="username" type="text">
+                        <input name="username" data-validation="username" type="text">
                         <label>Email</label>
-                        <input name="email" type="email">
+                        <input name="email" data-validation="email" type="email">
                         <label>Password</label>
-                        <input name="password" type="password">
+                        <input name="password" data-validation="password" type="password">
                         <label>Repeat password</label>
-                        <input name="repeatPassword" type="password">
+                        <input name="repeatPassword" data-validation="password" type="password">
                         <button type="submit">Register</button>
                     </form>
                 </main>`;
