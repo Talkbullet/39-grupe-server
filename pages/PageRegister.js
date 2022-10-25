@@ -3,7 +3,7 @@ import { PageTemplate } from "../lib/PageTemplate.js";
 class PageRegister extends PageTemplate {
     constructor() {
         super();
-        this.scripts = ['auth'];
+        this.scripts = ['auth', 'random'];
     }
 
     mainHTML() {

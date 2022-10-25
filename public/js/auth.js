@@ -19,6 +19,7 @@ buttonDOM.addEventListener('click', (event) => {
     // 2) duomenu validacija
     const dataKeys = Object.keys(formData);
     for (const key of dataKeys) {
+        console.log(key);
         const [isErr, msg] = IsValid.username();
     }
 
