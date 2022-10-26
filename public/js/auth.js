@@ -28,7 +28,7 @@ buttonDOM.addEventListener('click', (event) => {
     } else {
         console.log('Viskas OK - siunciam duomenis i serveri...');
         fetch(formDOM.action, {
-            method: 'POST',
+            method: formDOM.dataset.method,
             body: JSON.stringify(formData),
         });
     }
