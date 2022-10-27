@@ -1,9 +1,11 @@
+import { file } from "../lib/file.js";
+
 const handler = {};
 
-handler.init = (data, callback) => {
+handler.init = async (data, callback) => {
     const allowedMethods = ['get', 'post', 'put', 'delete'];
     if (allowedMethods.includes(data.httpMethod)) {
-        return handler._handler[data.httpMethod](data);
+        return await handler._handler[data.httpMethod](data);
     }
     return 'ERROR: neleistinas http metodas';
 }
@@ -15,10 +17,11 @@ handler._handler.get = (data) => {
     return 'GET response';
 }
 
-handler._handler.post = (data) => {
-    console.log('register:POST logika...');
-    console.log(data);
-    return 'POST response';
+handler._handler.post = async (data) => {
+    const { payload } = data;
+    const { email } = payload;
+    const [err, msg] = await file.create('/users', email + '.json', payload);
+    return err ? 'Nepavyko sukurti paskyros' : msg;
 }
 
 handler._handler.put = (data) => {
