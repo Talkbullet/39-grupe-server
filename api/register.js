@@ -1,4 +1,5 @@
 import { file } from "../lib/file.js";
+import { IsValid } from "../lib/IsValid.js";
 
 const handler = {};
 
@@ -20,6 +21,7 @@ handler._handler.get = (data) => {
 handler._handler.post = async (data) => {
     const { payload } = data;
     const { email } = payload;
+
     const [err, msg] = await file.create('/users', email + '.json', payload);
     return err ? 'Nepavyko sukurti paskyros' : msg;
 }
