@@ -20,7 +20,28 @@ handler._handler.get = (data) => {
 
 handler._handler.post = async (data) => {
     const { payload } = data;
-    const { email } = payload;
+    const { username, email, password, repeatPassword } = payload;
+
+    delete payload.repeatPassword;
+
+    const [errUsername, msgUsername] = IsValid.username(username);
+    if (errUsername) {
+        return msgUsername;
+    }
+
+    const [errEmail, msgEmail] = IsValid.email(email);
+    if (errEmail) {
+        return msgEmail;
+    }
+
+    const [errPassword, msgPassword] = IsValid.password(password);
+    if (errPassword) {
+        return msgPassword;
+    }
+
+    if (password !== repeatPassword) {
+        return 'Slaptazodziai nesutampa';
+    }
 
     const [err, msg] = await file.create('/users', email + '.json', payload);
     return err ? 'Nepavyko sukurti paskyros' : msg;
