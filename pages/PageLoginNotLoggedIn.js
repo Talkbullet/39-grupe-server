@@ -9,7 +9,7 @@ class PageLoginNotLoggedIn extends PageTemplate {
     mainHTML() {
         return `<main>
                     <h2>Login</h2>
-                    <form action="/api/user-login" method="POST">
+                    <form action="/api/user-login" data-method="post">
                         <label>Email</label>
                         <input name="email" data-validation="email" type="email">
                         <label>Password</label>

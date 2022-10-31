@@ -1,5 +1,6 @@
 import { file } from "../lib/file.js";
 import { IsValid } from "../lib/IsValid.js";
+import { utils } from "../lib/utils.js";
 
 const handler = {};
 
@@ -42,6 +43,14 @@ handler._handler.post = async (data) => {
     if (password !== repeatPassword) {
         return 'Slaptazodziai nesutampa';
     }
+
+    const salt = '5er8g4b526er5';
+    const [hashErr, hashMsg] = utils.hash(password + salt);
+    if (hashErr) {
+        return 'Nepavyko sukurti paskyros';
+    }
+
+    payload.password = hashMsg;
 
     const [err, msg] = await file.create('/users', email + '.json', payload);
     return err ? 'Nepavyko sukurti paskyros' : msg;
