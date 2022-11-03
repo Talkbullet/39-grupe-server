@@ -55,7 +55,9 @@ handler._handler.post = async (data) => {
         return 'Negeras email arba password';
     }
 
-    return 'OK';
+    return ['OK', {
+        'Set-Cookie': `token=${utils.uuid(20)}`,
+    }];
 
     // const [err, msg] = await file.create('/users', email + '.json', payload);
     // return err ? 'Nepavyko sukurti paskyros' : msg;
