@@ -23,9 +23,9 @@ This project is for educational porpuses only. Pull request are welcome, but pri
 -   [x] file system (some data storage, static files: js, css, images, fonts)
 -   [ ] API
 -   [ ] database (MySQL)
--   [ ] request (fetch, ajax)
+-   [x] request (fetch, ajax)
 -   [ ] authentication (cookies)
--   [ ] Jest tests
+-   [x] Jest tests
 
 ## 🧰 Getting Started
 
@@ -49,7 +49,7 @@ Would like to run this project locally? Open terminal and follow these steps:
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/belauzas/learn-guru.git
+    git clone https://github.com/front-end-by-rimantas/39-grupe-server.git
     ```
 2. Install NPM packages
     ```sh
